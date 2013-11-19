@@ -1,0 +1,15 @@
+settings =
+{
+	orientation =
+	{
+		default   = "landscapeLeft",
+		supported = { "landscapeLeft", "landscapeRight" }, 
+	},
+	iphone =
+	{
+		plist =
+		{
+            CFBundleDisplayName = "Sprite sorting",
+        },
+	},
+}
