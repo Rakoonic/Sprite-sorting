@@ -20,7 +20,7 @@ local sortableGroup = display.newSortableGroup{
 	property  = "y",
 --	property  = "width",
 
-	-- Which direction to sort in?
+	-- Which direction to sort in? Default is bigger=nearer
 --	direction = "bigger=nearer",
 --	direction = "smaller=nearer",	
 }
