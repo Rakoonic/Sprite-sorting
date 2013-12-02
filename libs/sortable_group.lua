@@ -9,20 +9,23 @@ local setSort, sort
 ------------------------------------------------------------------------------
 
 -- Create the new group type
-function display.newSortableGroup( params )
+if display.newSortableGroup == nil then
+	function display.newSortableGroup( params )
 
-	local self = display.newGroup()
+		local self = display.newGroup()
 
-	-- Add in the extra function
-	self.sort    = sort
-	self.setSort = setSort
+		-- Add in the extra function
+		self.sort    = sort
+		self.setSort = setSort
 
-	-- If sorting params are passed, set them up
-	if params then self:setSort( params ) ; end
+		-- If sorting params are passed, set them up
+		if params then self:setSort( params )
+		else           self:setSort( { property = "y" } ); end
 
-	-- Return the group
-	return self
+		-- Return the group
+		return self
 
+	end
 end
 
 ------------------------------------------------------------------------------

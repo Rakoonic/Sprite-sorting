@@ -12,18 +12,25 @@ require( "libs.sortable_group" )
 -- CREATE AND TEST
 ------------------------------------------------------------------------------
 
+--[[
+-- Easiest - defaults to sorting by Y
+local sortableGroup = display.newSortableGroup()
+--]]
+
+---[[
 -- Create sortable group and sort by one of various values
 local sortableGroup = display.newSortableGroup{
 
 	-- What property controls the Z? Can be a standard one or a value you add to each sprite (for example, a 'Z' property)
---	property  = "x",
-	property  = "y",
+	property  = "x",
+--	property  = "y",
 --	property  = "width",
 
 	-- Which direction to sort in? Default is bigger=nearer
 --	direction = "bigger=nearer",
---	direction = "smaller=nearer",	
+	direction = "smaller=nearer",	
 }
+--]]
 
 --[[
 -- Create sortable group and set a custom sort function (diagonal search - the further down right the nearer)
@@ -45,11 +52,12 @@ end
 -- Actually sort using the routine you specified
 sortableGroup:sort()
 
--- Colour by order to show end result
+-- Colour by order to show end result - note if not using 
 local numChildren = sortableGroup.numChildren
 for i = 1, numChildren do
 
 	local col = i / numChildren
-	sortableGroup[ i ]:setFillColor( col, col, 1 )
+	sortableGroup[ i ]:setFillColor( col * 255, col * 255, 255 ) -- Use this line for graphics 1.0
+--	sortableGroup[ i ]:setFillColor( col, col, 1 ) -- Use this line for graphics 2.0
 
 end
