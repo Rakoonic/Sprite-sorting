@@ -9,16 +9,19 @@ local setSort, sort
 ------------------------------------------------------------------------------
 
 -- Create the new group type
-function display.newSortableGroup()
+function display.newSortableGroup( params )
 
-	local group = display.newGroup()
+	local self = display.newGroup()
 
 	-- Add in the extra function
-	group.sort    = sort
-	group.setSort = setSort
+	self.sort    = sort
+	self.setSort = setSort
+
+	-- If sorting params are passed, set them up
+	if params then self:setSort( params ) ; end
 
 	-- Return the group
-	return group
+	return self
 
 end
 
